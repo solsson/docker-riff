@@ -4,5 +4,5 @@ FROM projectriff/node-function-invoker:0.0.9-snapshot@sha256:77adb936cc46e47403c
 # {{ if .FileExists "package.json" -}}
 ENV FUNCTION_URI /functions/
 COPY . ${FUNCTION_URI}
-RUN (cd ${FUNCTION_URI} && npm install --production  --unsafe-perm)
+RUN (cd ${FUNCTION_URI} && npm ci)
 # {{- else -}}
